@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/dapauls/frontend-project-46/issues"
   },
-  "homepage": "https://github.com/dapauls/frontend-project-46#readme"
+  "homepage": "https://github.com/dapauls/frontend-project-46#readme",
+  "type": "module",
+  "bin": {
+    "gendiff": "bin/gendiff.js" 
+  }
 }
