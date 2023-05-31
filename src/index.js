@@ -2,7 +2,14 @@ import { readFileSync } from 'fs';
 import path from 'path';
 import lodash from 'lodash';
 
-export default (filepath1, filepath2, optionsFormat) => {
-    const str = `hi, this is ${filepath1} and ${filepath2} with ${optionsFormat}`;
-    return str;
+export default (filepath1, filepath2) => {
+    const typeOf = (fp) => {
+        const arra = fp.split('.');
+        const result = arra[arra.length - 1];
+        return result;
+    };
+    if (typeOf(filepath1) !== 'json' || typeOf(filepath2) !== 'json') {
+        return 'this is incorrect format.'
+    }
+    
 };
