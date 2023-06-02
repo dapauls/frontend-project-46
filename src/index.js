@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs';
 import path from 'path';
-import lodash from 'lodash';
+import _ from 'lodash';
 
 export default (filepath1, filepath2) => {
     const typeOf = (fp) => {
@@ -20,8 +20,32 @@ export default (filepath1, filepath2) => {
     const path2 = getFilePath(filepath2);
     const data2 = readFile(path2);
 
-    const filepath1Parse = JSON.parse(data1);
-    const filepath2Parse = JSON.parse(data2);
+    const dataOfFileOne = JSON.parse(data1);
+    const dataOfFileTwo = JSON.parse(data2);
+
+    const dataOfFileOneArra = Object.entries(dataOfFileOne);
+    //const dataOfFileTwoArra = Object.entries(dataOfFileTwo);
+
+    const commonData = [];
+    const commonKeysDiffrentValues = [];
+    const justInData1 = [];
+    const justInData2 = [];
+
+    dataOfFileOneArra.forEach((property) => {
+        if (_.has(dataOfFileTwo, property[0].property[1])) { // в двух файлах совпадают и ключи и значения
+            commonData.push(property);
+        } else if (_.has(dataOfFileTwo, property[0])) {  // ключи есть в обоих файлах, но их значения разные
+            commonKeysDiffrentValues.push(property);
+        } else {
+            justInData1.push(property); // ключи есть только в первом файле
+        }
+    });  
+
+    commonKeysDiffrentValues.forEach((property) => {
+        if (_.has(dataOfFileTwo, property[0])) { // ключи есть только во втором файле
+            justInData2.push(property)
+        }
+    });
 
     
 };
