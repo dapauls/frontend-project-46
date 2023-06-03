@@ -23,29 +23,27 @@ export default (filepath1, filepath2) => {
     const dataOfFileOne = JSON.parse(data1);
     const dataOfFileTwo = JSON.parse(data2);
 
-    const dataOfFileOneArra = Object.entries(dataOfFileOne);
-    //const dataOfFileTwoArra = Object.entries(dataOfFileTwo);
-
-    const commonData = [];
-    const commonKeysDiffrentValues = [];
-    const justInData1 = [];
-    const justInData2 = [];
-
-    dataOfFileOneArra.forEach((property) => {
-        if (_.has(dataOfFileTwo, property[0].property[1])) { // в двух файлах совпадают и ключи и значения
-            commonData.push(property);
-        } else if (_.has(dataOfFileTwo, property[0])) {  // ключи есть в обоих файлах, но их значения разные
-            commonKeysDiffrentValues.push(property);
-        } else {
-            justInData1.push(property); // ключи есть только в первом файле
-        }
-    });  
-
-    commonKeysDiffrentValues.forEach((property) => {
-        if (_.has(dataOfFileTwo, property[0])) { // ключи есть только во втором файле
-            justInData2.push(property)
-        }
-    });
-
+    const keysOfFileOne = _.keys(dataOfFileOne);
+    const keysOfFileTwo = _.keys(dataOfFileTwo);
+    const arraOfKeys = _.union(keysOfFileOne, keysOfFileTwo);
+    const sortedArraOfKeys = _.sortBy(arraOfKeys);
     
+    const objOfKeysInfo = {};
+    sortedArraOfKeys.forEach((key) => {
+        const filesInfo = { 'file1': 'no', 'file2': 'no' };
+        if (_.has(dataOfFileOne, key)) {
+            filesInfo['file1'] = 'yes';
+        }
+        if (_.has(dataOfFileTwo, key)) {
+            filesInfo['file2'] = 'yes';
+        }
+        objOfKeysInfo[key] = filesInfo; 
+    });
+    
+    // получаю инфу о том, находится ли ключ внутри первого или второго объекта
+    // следующим шагом должна сравнить значения ключей, которые есть и там, и там - пишу программу, которая присваивает ключу статус "минус"
+    // или "плюс", если он есть только в одном файле или статусы "изменено" (если значения отличаются) или "неизменено" (если значение не изменилось)
+    // след. шаг - построение строки на основании данных и засовывание этой строки в результатирующий объект
+    return objOfKeysInfo
+
 };
