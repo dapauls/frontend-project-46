@@ -58,11 +58,18 @@ export default (filepath1, filepath2) => {
         keysState[key] = keysInfo;
     });
 
-    return keysState
-    
-    // теперь у объекта есть "состояние", по нему я могу сформировать строчку, которую потом засуну в объект - это и есть результат
-
-    // plus, minus, changed, unchanged
-    return objOfKeysInfo
-
+    const result = sortedArraOfKeys.map((key) => {
+        switch(keysState[key]['status']) {
+            case 'minus':
+                return `  - ${key}: ${dataOfFileOne[key]}`;
+            case 'plus': 
+                return `  + ${key}: ${dataOfFileTwo[key]}`;
+            case 'unchanged':
+                return `    ${key}: ${dataOfFileOne[key]}`;
+            case 'changed': 
+                return `  - ${key}: ${dataOfFileOne[key]} \n  + ${key}: ${dataOfFileTwo[key]}`;
+        }
+    });
+    return `{\n${result.join('\n')}\n}`;
+    // не уверена, что пути правильно работают
 };
