@@ -30,14 +30,21 @@ export default (filepath1, filepath2) => {
     
     const objOfKeysInfo = {};
     sortedArraOfKeys.forEach((key) => {
-        const filesInfo = { 'file1': 'no', 'file2': 'no' };
+        const filesInfo = { 'file1': false, 'file2': false };
         if (_.has(dataOfFileOne, key)) {
-            filesInfo['file1'] = 'yes';
+            filesInfo['file1'] = true;
         }
         if (_.has(dataOfFileTwo, key)) {
-            filesInfo['file2'] = 'yes';
+            filesInfo['file2'] = true;
         }
         objOfKeysInfo[key] = filesInfo; 
+    });
+
+    sortedArraOfKeys.forEach((key) => {
+        const keysInfo = { 'status' };
+        if (objOfKeysInfo[key][file1] === true && objOfKeysInfo[key][file2] === true) {
+
+        }
     });
     
     // получаю инфу о том, находится ли ключ внутри первого или второго объекта
