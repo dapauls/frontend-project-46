@@ -40,17 +40,29 @@ export default (filepath1, filepath2) => {
         objOfKeysInfo[key] = filesInfo; 
     });
 
-    sortedArraOfKeys.forEach((key) => {
-        const keysInfo = { 'status' };
-        if (objOfKeysInfo[key][file1] === true && objOfKeysInfo[key][file2] === true) {
 
+    const keysState = {};
+    sortedArraOfKeys.forEach((key) => {
+        const keysInfo = { 'status': null };
+        if (objOfKeysInfo[key]['file1'] === true && objOfKeysInfo[key]['file2'] === true) { // есть в обоих файлах
+            if (dataOfFileOne[key] === dataOfFileTwo[key]) {
+                keysInfo['status'] = 'unchanged'
+            } else {
+                keysInfo['status'] = 'changed'
+            }
+        } else if (objOfKeysInfo[key]['file1'] === true) { // только в первом
+            keysInfo['status'] = 'minus'
+        } else if (objOfKeysInfo[key]['file2'] === true) { // только во втором
+            keysInfo['status'] = 'plus'
         }
+        keysState[key] = keysInfo;
     });
+
+    return keysState
     
-    // получаю инфу о том, находится ли ключ внутри первого или второго объекта
-    // следующим шагом должна сравнить значения ключей, которые есть и там, и там - пишу программу, которая присваивает ключу статус "минус"
-    // или "плюс", если он есть только в одном файле или статусы "изменено" (если значения отличаются) или "неизменено" (если значение не изменилось)
-    // след. шаг - построение строки на основании данных и засовывание этой строки в результатирующий объект
+    // теперь у объекта есть "состояние", по нему я могу сформировать строчку, которую потом засуну в объект - это и есть результат
+
+    // plus, minus, changed, unchanged
     return objOfKeysInfo
 
 };
