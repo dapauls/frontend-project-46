@@ -25,5 +25,8 @@
     "fs": "^0.0.1-security",
     "lodash": "^4.17.21",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
   }
 }
