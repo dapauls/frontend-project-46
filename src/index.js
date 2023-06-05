@@ -70,7 +70,7 @@ export default (filepath1, filepath2) => {
         string = `    ${key}: ${dataOfFileOne[key]}`;
         break;
       case 'changed':
-        string = `  - ${key}: ${dataOfFileOne[key]} \n  + ${key}: ${dataOfFileTwo[key]}`;
+        string = `  - ${key}: ${dataOfFileOne[key]}\n  + ${key}: ${dataOfFileTwo[key]}`;
         break;
       default:
         string = null;
