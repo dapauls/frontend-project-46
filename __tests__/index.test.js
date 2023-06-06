@@ -15,3 +15,11 @@ test('json files', () => {
   const contentOfResultFile = readFileSync(resultFile, 'utf8');
   expect(genDiff(fileOne, fileTwo)).toBe(contentOfResultFile);
 });
+
+test('yaml files', () => {
+  const fileOne = getFixturePath('file1.yml');
+  const fileTwo = getFixturePath('file2.yml');
+  const resultFile = getFixturePath('result.txt');
+  const contentOfResultFile = readFileSync(resultFile, 'utf8');
+  expect(genDiff(fileOne, fileTwo)).toBe(contentOfResultFile);
+});

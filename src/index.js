@@ -1,6 +1,7 @@
 import { readFileSync } from 'fs';
 import path from 'path';
 import _ from 'lodash';
+import parse from './parsers.js';
 
 export default (filepath1, filepath2) => {
   const typeOf = (fp) => {
