@@ -30,36 +30,36 @@ export default (filepath1, filepath2) => {
 
   const objOfKeysInfo = {};
   sortedArraOfKeys.forEach((key) => {
-    const filesInfo = { 'file1': false, 'file2': false };
+    const filesInfo = { file1: false, file2: false };
     if (_.has(dataOfFileOne, key)) {
-      filesInfo['file1'] = true;
+      filesInfo.file1 = true;
     }
     if (_.has(dataOfFileTwo, key)) {
-      filesInfo['file2'] = true;
+      filesInfo.file2 = true;
     }
     objOfKeysInfo[key] = filesInfo;
   });
 
   const keysState = {};
   sortedArraOfKeys.forEach((key) => {
-    const keysInfo = { 'status': null };
-    if (objOfKeysInfo[key]['file1'] === true && objOfKeysInfo[key]['file2'] === true) { // есть в обоих файлах
+    const keysInfo = { status: null };
+    if (objOfKeysInfo[key].file1 === true && objOfKeysInfo[key].file2 === true) {
       if (dataOfFileOne[key] === dataOfFileTwo[key]) {
-        keysInfo['status'] = 'unchanged';
+        keysInfo.status = 'unchanged';
       } else {
-        keysInfo['status'] = 'changed';
+        keysInfo.status = 'changed';
       }
-    } else if (objOfKeysInfo[key]['file1'] === true) { // только в первом
-      keysInfo['status'] = 'minus';
-    } else if (objOfKeysInfo[key]['file2'] === true) { // только во втором
-      keysInfo['status'] = 'plus';
+    } else if (objOfKeysInfo[key].file1 === true) { // только в первом
+      keysInfo.status = 'minus';
+    } else if (objOfKeysInfo[key].file2 === true) { // только во втором
+      keysInfo.status = 'plus';
     }
     keysState[key] = keysInfo;
   });
 
   const result = sortedArraOfKeys.map((key) => {
     let string;
-    switch (keysState[key]['status']) {
+    switch (keysState[key].status) {
       case 'minus':
         string = `  - ${key}: ${dataOfFileOne[key]}`;
         break;
