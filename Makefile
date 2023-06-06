@@ -9,3 +9,6 @@ install:
 
 test-coverage:
 	npm test -- --coverage
+
+test:
+	npx -n --experimental-vm-modules jest
