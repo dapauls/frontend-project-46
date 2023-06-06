@@ -6,3 +6,6 @@ lint:
 	
 install:
 	npm ci
+
+test-coverage:
+	npm test -- --coverage
