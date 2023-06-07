@@ -5,11 +5,13 @@ import parse from './parsers.js';
 
 export default (filepath1, filepath2) => {
   const typeOf = (fp) => {
-    const arra = fp.split('.');
-    const result = arra[arra.length - 1];
-    return result;
+    const type = path.extname(fp);
+    if (type === 'json' || type === 'yml' || type === 'yaml') {
+      return true;
+    }
+    return false;
   };
-  if (typeOf(filepath1) !== 'json' || typeOf(filepath2) !== 'json') {
+  if (typeOf(filepath1) === false || typeOf(filepath2) === false) {
     return 'incorrect format';
   }
   const getFilePath = (file) => path.resolve(process.cwd(), file);
