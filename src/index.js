@@ -4,18 +4,21 @@ import _ from 'lodash';
 import parse from './parsers.js';
 
 export default (filepath1, filepath2) => {
+  const getFilePath = (file) => path.resolve(process.cwd(), file);
+  const readFile = (filePath) => readFileSync(filePath, 'utf8');
+  const getFileFormat = (file) => path.extname(file).slice(1);
+
   const typeOf = (fp) => {
-    const type = path.extname(fp);
+    const type = getFileFormat(fp);
     if (type === 'json' || type === 'yml' || type === 'yaml') {
       return true;
     }
     return false;
   };
+
   if (typeOf(filepath1) === false || typeOf(filepath2) === false) {
     return 'incorrect format';
   }
-  const getFilePath = (file) => path.resolve(process.cwd(), file);
-  const readFile = (filePath) => readFileSync(filePath, 'utf8');
 
   const path1 = getFilePath(filepath1);
   const data1 = readFile(path1);
@@ -23,8 +26,8 @@ export default (filepath1, filepath2) => {
   const path2 = getFilePath(filepath2);
   const data2 = readFile(path2);
 
-  const dataOfFileOne = JSON.parse(data1);
-  const dataOfFileTwo = JSON.parse(data2);
+  const dataOfFileOne = parse(data1, getFileFormat(filepath1));
+  const dataOfFileTwo = parse(data2, getFileFormat(filepath2));
 
   const keysOfFileOne = _.keys(dataOfFileOne);
   const keysOfFileTwo = _.keys(dataOfFileTwo);
@@ -52,9 +55,9 @@ export default (filepath1, filepath2) => {
       } else {
         keysInfo.status = 'changed';
       }
-    } else if (objOfKeysInfo[key].file1 === true) { // только в первом
+    } else if (objOfKeysInfo[key].file1 === true) {
       keysInfo.status = 'minus';
-    } else if (objOfKeysInfo[key].file2 === true) { // только во втором
+    } else if (objOfKeysInfo[key].file2 === true) {
       keysInfo.status = 'plus';
     }
     keysState[key] = keysInfo;
@@ -81,5 +84,5 @@ export default (filepath1, filepath2) => {
     return string;
   });
   return `{\n${result.join('\n')}\n}`;
-  // не уверена, что пути правильно работают
+  // не уверена, что пути правильно работают */
 };
