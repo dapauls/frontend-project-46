@@ -4,7 +4,8 @@ import makeDiff from './makeDiff.js';
 import parse from './parsers.js';
 import getRigthFormatResult from './formatters/index.js';
 
-const getFilePath = (file) => path.resolve(process.cwd(), file);
+const getFilePath = (file) => path.resolve(process.cwd(), file); // не уверенна, правильно ли здесь
+// задаётся путь (но вроде да)
 const readFile = (filePath) => readFileSync(filePath, 'utf8');
 const getFileFormat = (file) => path.extname(file).slice(1);
 
