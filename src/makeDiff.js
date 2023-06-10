@@ -1,23 +1,23 @@
 import _ from 'lodash';
 
-const makeDiff = (objOne, objTwo) => {
-  const keys = _.sortBy(_.union(_.keys(objOne), _.keys(objTwo)));
+const makeDiff = (data1, data2) => {
+  const keys = _.sortBy(_.union(_.keys(data1), _.keys(data2)));
+
   const diff = keys.map((key) => {
-    if (_.isObject(objOne[key]) && _.isObject(objTwo[key])) {
-      return { key, value: makeDiff(objOne[key], objTwo[key]) };
+    if (!_.has(data1, key)) {
+      return { key, value: data2[key], status: 'plus' };
     }
-    if (!_.has(objOne, key)) {
-      return { key, value: objTwo[key], status: 'plus' };
+    if (!_.has(data2, key)) {
+      return { key, value: data1[key], status: 'minus' };
     }
-    if (!_.has(objTwo, key)) {
-      return { key, value: objOne[key], status: 'minus' };
+    if (data1[key] === data2[key]) {
+      return { key, value: data1[key], status: 'unchanged' }; // притом, что статусы ставятся правильно, не должны ли сюда попадать common и group1?
     }
-    if (objOne[key] === objTwo[key]) {
-      return { key, value: objOne[key], status: 'unchanged' };
+    if (_.isObject(data1[key]) && _.isObject(data2[key])) {
+      return { key, value: makeDiff(data1[key], data2[key]), status: 'object' };
     }
-    return { key, value: { oldValue: objOne[key], newValue: objTwo[key] }, status: 'changed' };
+    return { key, value: { oldValue: data1[key], newValue: data2[key] }, status: 'changed' };
   });
   return diff;
 };
-
 export default makeDiff;
