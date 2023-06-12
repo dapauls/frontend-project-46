@@ -1,31 +1,40 @@
 // import _ from 'lodash';
 
-const toStylish = (diff) => {
+const getIndent = (depth) => {
+  const quantityofSpaces = depth * 4 - 2;
+  return ' '.repeat(quantityofSpaces);
+};
+
+const getSign = (sign, key, value) => `${sign} ${key}: ${value}\n`;
+
+const getAnswer = (diff, depth) => {
   const result = diff.map(({ key, value, status }) => {
-    let str;
+    let sign;
     switch (status) {
       case 'added':
-        str = `+ ${key}: ${value}\n`;
+        sign = '+';
         break;
       case 'removed':
-        str = `- ${key}: ${value}\n`;
+        sign = '-';
         break;
       case 'unchanged':
-        str = `  ${key}: ${value}\n`;
+        sign = ' ';
         break;
       case 'update':
-        str = `- ${key}: ${value.oldValue}\n+ ${key}: ${value.newValue}\n`;
+        sign = `- ${key}: ${value}\n+${key}: ${value}`;
         break;
       case 'complex':
-        str = `${key}: ${toStylish(value)}`;
+        sign = `${getIndent(depth)}${key}: ${getAnswer(value, depth + 1)}`;
         break;
       default:
-        str = 'error';
+        throw new Error();
     }
-    return str;
+    return `${getIndent(depth)}${getSign(sign, key, value)}`;
   });
   return `{\n${result.join('')}}\n`;
 };
+
+const toStylish = (diff) => getAnswer(diff, 1);
 
 export default toStylish;
 
