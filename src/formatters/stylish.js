@@ -1,22 +1,30 @@
-import _ from 'lodash';
+// import _ from 'lodash';
 
 const toStylish = (diff) => {
-  const result = diff.map((obj) => {
-    if (obj.status === 'plus') {
-      return `+ ${obj.key}: ${obj.value}\n`;
+  const result = diff.map(({ key, value, status }) => {
+    let str;
+    switch (status) {
+      case 'added':
+        str = `+ ${key}: ${value}\n`;
+        break;
+      case 'removed':
+        str = `- ${key}: ${value}\n`;
+        break;
+      case 'unchanged':
+        str = `  ${key}: ${value}\n`;
+        break;
+      case 'update':
+        str = `- ${key}: ${value.oldValue}\n + ${key}: ${value.newValue}\n`;
+        break;
+      case 'complex':
+        str = `${key}: ${toStylish(value)}`;
+        break;
+      default:
+        str = 'error';
     }
-    if (obj.status === 'minus') {
-      return `- ${obj.key}: ${obj.value}\n`;
-    }
-    if (obj.status === 'unchanged') {
-      return `${obj.key}: ${obj.value}\n`;
-    }
-    if (obj.status === 'object') { // попадает верно
-      return `this is obj.value ${obj.value}`;
-    }
-    return `- ${obj.key}: ${obj.value.oldValue} \n + ${obj.key}: ${obj.value.newValue}\n`;
+    return str;
   });
-  return result.join('\n');
+  return result.join('');
 };
 
 export default toStylish;
