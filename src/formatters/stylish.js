@@ -14,7 +14,7 @@ const toStylish = (diff) => {
         str = `  ${key}: ${value}\n`;
         break;
       case 'update':
-        str = `- ${key}: ${value.oldValue}\n + ${key}: ${value.newValue}\n`;
+        str = `- ${key}: ${value.oldValue}\n+ ${key}: ${value.newValue}\n`;
         break;
       case 'complex':
         str = `${key}: ${toStylish(value)}`;
@@ -24,7 +24,7 @@ const toStylish = (diff) => {
     }
     return str;
   });
-  return result.join('');
+  return `{${result.join('')}}`;
 };
 
 export default toStylish;

@@ -12,6 +12,7 @@ const makeDiff = (data1, data2) => {
     }
     if (data1[key] === data2[key]) {
       return { key, value: data1[key], status: 'unchanged' }; // притом, что статусы ставятся правильно, не должны ли сюда попадать common и group1?
+      // они ж равны... или оно так проверяет значения ключей, т.е. именно объекты?
     }
     if (_.isObject(data1[key]) && _.isObject(data2[key])) {
       return { key, value: makeDiff(data1[key], data2[key]), status: 'complex' };
