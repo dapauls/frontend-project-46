@@ -24,7 +24,7 @@ const toStylish = (diff) => {
     }
     return str;
   });
-  return `{${result.join('')}}`;
+  return `{\n${result.join('')}}\n`;
 };
 
 export default toStylish;
