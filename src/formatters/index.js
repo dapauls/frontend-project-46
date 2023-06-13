@@ -8,12 +8,6 @@ export default (diff, format) => {
     case 'stylish':
       result = toStylish(diff);
       break;
-    case 'plain':
-      result = toPlain(diff);
-      break;
-    case 'json':
-      result = toJSON(diff);
-      break;
     default:
       result = 'error';
   }
