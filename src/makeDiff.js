@@ -15,7 +15,7 @@ const makeDiff = (data1, data2) => {
       // они ж равны... или оно так проверяет значения ключей, т.е. именно объекты?
     }
     if (_.isObject(data1[key]) && _.isObject(data2[key])) {
-      return { key, value: makeDiff(data1[key], data2[key]), status: 'complex' };
+      return { key, value: makeDiff(data1[key], data2[key]), status: 'object' };
     }
     return {
       key, value: { oldValue: data1[key], newValue: data2[key] }, status: 'update',
