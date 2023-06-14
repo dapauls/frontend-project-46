@@ -25,7 +25,7 @@ something
 ```
 ----------------------------------
 
-## GENDIFF with flags (hepl and verson)
+## Help and version flags
 `gendiff -h`
 <br/>
 
