@@ -19,7 +19,9 @@ The program allows you to find differences between two files in JSON and YAML fo
 
 ## GENDIFF with flags (hepl and verson)
 `gendiff -h`
+<br/>
 `gendiff -V`
+<br/>
 https://asciinema.org/a/iQcxF7CHVtkucUnFlRjxQ3XIc
 
 ------------------------------------
