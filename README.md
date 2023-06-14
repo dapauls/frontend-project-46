@@ -14,11 +14,12 @@
 
 # PROJECT DESCRIPTION
 The program allows you to find the differences between two files in JSON and YAML formats and output it in several formats.
+<br/>
+<br/>
 
 ---
 
 ## Installing the game:
-
 ```
 something
 ```
@@ -27,7 +28,7 @@ something
 ## GENDIFF with flags (hepl and verson)
 `gendiff -h`
 <br/>
-<br/>
+
 `gendiff -V`
 <br/>
 <br/>
@@ -36,8 +37,6 @@ something
 ------------------------------------
 
 ## JSON FILES IN STYLISH FORMAT (default)
-<br/>
-<br/>
 `gendiff file1.json file2.json`
 <br/>
 <br/>
@@ -46,8 +45,6 @@ something
 -------------------------------------
 
 ## YML FILES IN PLAIN FORMAT
-<br/>
-<br/>
 `gendiff file1.yml file2.yml --format plain`
 <br/>
 <br/>
@@ -56,8 +53,6 @@ something
 ---------------------------------------
 
 ## YAML FILES IN JSON FORMAT
-<br/>
-<br/>
 `gendiff file1.yaml file2.yaml --format json`
 <br/>
 <br/>
