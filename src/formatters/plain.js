@@ -13,7 +13,7 @@ const toPlain = (diff) => {
     let string;
     switch (status) {
       case 'update':
-        string = `Property '${key}' was update. From ${getRightValue(value.oldValue)} to ${getRightValue(value.NewValue)}\n`;
+        string = `Property '${key}' was updated. From ${getRightValue(value.oldValue)} to ${getRightValue(value.NewValue)}\n`;
         break;
       case 'removed':
         string = `Property '${key}' was removed\n`;
@@ -21,6 +21,8 @@ const toPlain = (diff) => {
       case 'added':
         string = `Property '${key}' was added with value: ${getRightValue(value)}\n`;
         break;
+      case 'object':
+        return toPlain(value);
       default:
         string = 'Error!\n';
     }

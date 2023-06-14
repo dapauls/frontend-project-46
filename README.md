@@ -5,6 +5,8 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/faa828029aa1aa74545a/test_coverage)](https://codeclimate.com/github/dapauls/frontend-project-46/test_coverage)
 
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
+
 ## JSON format:
 [![asciicast](https://asciinema.org/a/yXGRlkwtkFuTD2VlTSOCvdSbp.svg)](https://asciinema.org/a/yXGRlkwtkFuTD2VlTSOCvdSbp)
 
