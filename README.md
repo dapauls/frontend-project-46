@@ -20,26 +20,34 @@ The program allows you to find differences between two files in JSON and YAML fo
 ## GENDIFF with flags (hepl and verson)
 `gendiff -h`
 <br/>
+<br/>
 `gendiff -V`
 <br/>
-https://asciinema.org/a/iQcxF7CHVtkucUnFlRjxQ3XIc
+<br/>
+[![asciicast](https://asciinema.org/a/iQcxF7CHVtkucUnFlRjxQ3XIc.svg)](https://asciinema.org/a/iQcxF7CHVtkucUnFlRjxQ3XIc)
 
 ------------------------------------
 
 # JSON FILES IN STYLISH FORMAT (default)
 `gendiff file1.json file2.json`
+<br/>
+<br/>
 
 
 -------------------------------------
 
 # YML FILES IN PLAIN FORMAT
 `gendiff file1.yml file2.yml --format plain`
+<br/>
+<br/>
 
 
 ---------------------------------------
 
 # YAML FILES IN JSON FORMAT
 `gendiff file1.yaml file2.yaml --format json`
+<br/>
+<br/>
 
 
 ----------------------------------------
