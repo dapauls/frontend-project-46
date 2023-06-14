@@ -1,13 +1,13 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/dapauls/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/dapauls/frontend-project-46/actions)
 
-### Maintainability:
+### Maintainability status:
 [![Maintainability](https://api.codeclimate.com/v1/badges/faa828029aa1aa74545a/maintainability)](https://codeclimate.com/github/dapauls/frontend-project-46/maintainability)
 
-### Test Coverage:
+### Test coverage status:
 [![Test Coverage](https://api.codeclimate.com/v1/badges/faa828029aa1aa74545a/test_coverage)](https://codeclimate.com/github/dapauls/frontend-project-46/test_coverage)
 
-### JS style:
+### JS style status:
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 
 ----------------------------------
