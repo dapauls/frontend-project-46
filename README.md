@@ -40,7 +40,7 @@ something
 `gendiff file1.json file2.json`
 <br/>
 <br/>
-
+[![asciicast](https://asciinema.org/a/2JEODeKuLORj6EOssC2jXwdIZ.svg)](https://asciinema.org/a/2JEODeKuLORj6EOssC2jXwdIZ)
 
 -------------------------------------
 
@@ -48,7 +48,7 @@ something
 `gendiff file1.yml file2.yml --format plain`
 <br/>
 <br/>
-
+[![asciicast](https://asciinema.org/a/AwSctjJu080QmkMOFWgn3RlcP.svg)](https://asciinema.org/a/AwSctjJu080QmkMOFWgn3RlcP)
 
 ---------------------------------------
 
@@ -56,7 +56,7 @@ something
 `gendiff file1.yaml file2.yaml --format json`
 <br/>
 <br/>
-
+[![asciicast](https://asciinema.org/a/0F80vEUUXVeKIYheoWRyWFZR5.svg)](https://asciinema.org/a/0F80vEUUXVeKIYheoWRyWFZR5)
 
 ----------------------------------------
 
