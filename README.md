@@ -13,8 +13,15 @@
 ----------------------------------
 
 # PROJECT DESCRIPTION
-The program allows you to find differences between two files in JSON and YAML formats.
+The program allows you to find the differences between two files in JSON and YAML formats and output it in several formats.
 
+---
+
+## Installing the game:
+
+```
+something
+```
 ----------------------------------
 
 ## GENDIFF with flags (hepl and verson)
@@ -28,7 +35,9 @@ The program allows you to find differences between two files in JSON and YAML fo
 
 ------------------------------------
 
-# JSON FILES IN STYLISH FORMAT (default)
+## JSON FILES IN STYLISH FORMAT (default)
+<br/>
+<br/>
 `gendiff file1.json file2.json`
 <br/>
 <br/>
@@ -36,7 +45,9 @@ The program allows you to find differences between two files in JSON and YAML fo
 
 -------------------------------------
 
-# YML FILES IN PLAIN FORMAT
+## YML FILES IN PLAIN FORMAT
+<br/>
+<br/>
 `gendiff file1.yml file2.yml --format plain`
 <br/>
 <br/>
@@ -44,7 +55,9 @@ The program allows you to find differences between two files in JSON and YAML fo
 
 ---------------------------------------
 
-# YAML FILES IN JSON FORMAT
+## YAML FILES IN JSON FORMAT
+<br/>
+<br/>
 `gendiff file1.yaml file2.yaml --format json`
 <br/>
 <br/>
