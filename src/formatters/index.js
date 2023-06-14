@@ -1,6 +1,6 @@
 import toStylish from './stylish.js';
 import toPlain from './plain.js';
-// import toJSON from './json.js';
+import toJSON from './JSON.js';
 
 export default (diff, format) => {
   let result;
@@ -10,6 +10,9 @@ export default (diff, format) => {
       break;
     case 'plain':
       result = toPlain(diff);
+      break;
+    case 'json':
+      result = toJSON(diff);
       break;
     default:
       result = 'error';
