@@ -36,7 +36,7 @@ something
 
 ------------------------------------
 
-## JSON FILES IN STYLISH FORMAT (default)
+## JSON files in stylish format (default)
 `gendiff file1.json file2.json`
 <br/>
 <br/>
@@ -44,7 +44,7 @@ something
 
 -------------------------------------
 
-## YML FILES IN PLAIN FORMAT
+## YML files in plain format
 `gendiff file1.yml file2.yml --format plain`
 <br/>
 <br/>
@@ -52,7 +52,7 @@ something
 
 ---------------------------------------
 
-## YAML FILES IN JSON FORMAT
+## YAML files in JSON format
 `gendiff file1.yaml file2.yaml --format json`
 <br/>
 <br/>
