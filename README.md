@@ -13,13 +13,18 @@
 ----------------------------------
 
 # PROJECT DESCRIPTION
-The program allows you to find the differences between two files in JSON and YAML formats and output it in several formats.
+The program allows you to find the differences between two files in JSON and YAML and output it in several formats.
 <br/>
 <br/>
 
 ---
 
 ## Installing the game:
+### Requirements: 
+`nodejs`
+
+<br/>
+
 ```
 something
 ```
