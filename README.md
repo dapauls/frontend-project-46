@@ -1,3 +1,5 @@
+# DIFFERENCE GENERATOR
+
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/dapauls/frontend-project-46/workflows/hexlet-check/badge.svg)](https://github.com/dapauls/frontend-project-46/actions)
 
@@ -12,21 +14,27 @@
 
 ----------------------------------
 
-# PROJECT DESCRIPTION
+## Project description
 The program allows you to find the differences between two files in JSON and YAML and output it in several formats.
 <br/>
 <br/>
 
 ---
 
-## Installing the game:
+## Installing the programm:
 ### Requirements: 
-`nodejs`
+`node.js`
 
 <br/>
 
+### Installation
 ```
 something
+```
+
+### Run
+```
+gendiff <file1> <file2> --format <type>
 ```
 ----------------------------------
 
