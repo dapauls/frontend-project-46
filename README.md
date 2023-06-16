@@ -9,8 +9,8 @@
 ### Test coverage status:
 [![Test Coverage](https://api.codeclimate.com/v1/badges/faa828029aa1aa74545a/test_coverage)](https://codeclimate.com/github/dapauls/frontend-project-46/test_coverage)
 
-### Code style status:
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
+### Linter status:
+[![Linter](https://github.com/dapauls/frontend-project-46/actions/workflows/linter.yml/badge.svg)](https://github.com/dapauls/frontend-project-46/actions/workflows/linter.yml)
 
 ----------------------------------
 
