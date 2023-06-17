@@ -28,10 +28,10 @@ beforeEach(() => {
   contentOfResultPlainFile = readFileSync(resultPlainFile, 'utf8');
 });
 
-test('json files with stylish format', () => expect(genDiff(fileOneJSON, fileTwoJSON)).toBe(contentOfResultStylishFile));
+test('json files in stylish format', () => expect(genDiff(fileOneJSON, fileTwoJSON)).toBe(contentOfResultStylishFile));
 
-test('yaml files with stylish format', () => expect(genDiff(fileOneYAML, fileTwoYAML)).toBe(contentOfResultStylishFile));
+test('yaml files in stylish format', () => expect(genDiff(fileOneYAML, fileTwoYAML)).toBe(contentOfResultStylishFile));
 
-test('json files with plain format', () => expect(genDiff(fileOneJSON, fileTwoJSON, 'plain')).toBe(contentOfResultPlainFile));
+test('json files in plain format', () => expect(genDiff(fileOneJSON, fileTwoJSON, 'plain')).toBe(contentOfResultPlainFile));
 
-test('yaml files with plain format', () => expect(genDiff(fileOneYAML, fileTwoYAML, 'plain')).toBe(contentOfResultPlainFile));
+test('yaml files in plain format', () => expect(genDiff(fileOneYAML, fileTwoYAML, 'plain')).toBe(contentOfResultPlainFile));
