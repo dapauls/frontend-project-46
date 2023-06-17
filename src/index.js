@@ -4,8 +4,7 @@ import makeDiff from './makeDiff.js';
 import parse from './parsers.js';
 import getRigthFormatResult from './formatters/index.js';
 
-const getFilePath = (file) => path.resolve(process.cwd(), file); // не уверенна, правильно ли здесь
-// задаётся путь (но вроде да)
+const getFilePath = (file) => path.resolve(process.cwd(), file);
 const readFile = (filePath) => readFileSync(filePath, 'utf8');
 const getFileFormat = (file) => path.extname(file).slice(1);
 
@@ -17,7 +16,7 @@ const typeOf = (fp) => {
   return false;
 };
 
-export default (filepath1, filepath2, format = 'stylish') => { // здесь, наверное, не нужно значение по умолчанию, ибо оно есть в bin/gendiff
+export default (filepath1, filepath2, format = 'stylish') => {
   if (typeOf(filepath1) === false || typeOf(filepath2) === false) {
     throw new Error('Incorrect format.');
   }

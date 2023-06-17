@@ -29,7 +29,10 @@ The program allows you to find the differences between two files in JSON and YAM
 
 ### Installation
 ```
-something
+git clone git@github.com:dapauls/frontend-project-46.git
+cd frontend-project-46
+make install
+sudo npm link
 ```
 
 ### Run
