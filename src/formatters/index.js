@@ -3,19 +3,14 @@ import toPlain from './plain.js';
 import toJSON from './JSON.js';
 
 export default (diff, format) => {
-  let result;
   switch (format) {
     case 'stylish':
-      result = toStylish(diff);
-      break;
+      return toStylish(diff);
     case 'plain':
-      result = toPlain(diff);
-      break;
+      return toPlain(diff);
     case 'json':
-      result = toJSON(diff);
-      break;
+      return toJSON(diff);
     default:
-      result = 'error';
+      return 'error';
   }
-  return result;
 };

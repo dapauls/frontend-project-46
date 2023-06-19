@@ -8,19 +8,11 @@ const __dirname = path.dirname(__filename);
 
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 
-let fileOneYAML;
-let fileTwoYAML;
-let fileOneJSON;
-let fileTwoJSON;
-
-beforeEach(() => {
-  fileOneJSON = getFixturePath('file1.json');
-  fileTwoJSON = getFixturePath('file2.json');
-  fileOneYAML = getFixturePath('file1.yml');
-  fileTwoYAML = getFixturePath('file2.yml');
-});
-
 test('stylish format', () => {
+  const fileOneJSON = getFixturePath('file1.json');
+  const fileTwoJSON = getFixturePath('file2.json');
+  const fileOneYAML = getFixturePath('file1.yml');
+  const fileTwoYAML = getFixturePath('file2.yml');
   const resultStylishFile = getFixturePath('stylish-result.txt');
   const contentOfResultStylishFile = readFileSync(resultStylishFile, 'utf8');
   expect(genDiff(fileOneJSON, fileTwoJSON)).toBe(contentOfResultStylishFile);
@@ -28,6 +20,10 @@ test('stylish format', () => {
 });
 
 test('plain format', () => {
+  const fileOneJSON = getFixturePath('file1.json');
+  const fileTwoJSON = getFixturePath('file2.json');
+  const fileOneYAML = getFixturePath('file1.yml');
+  const fileTwoYAML = getFixturePath('file2.yml');
   const resultPlainFile = getFixturePath('plain-result.txt');
   const contentOfResultPlainFile = readFileSync(resultPlainFile, 'utf8');
   expect(genDiff(fileOneJSON, fileTwoJSON, 'plain')).toBe(contentOfResultPlainFile);
@@ -35,6 +31,10 @@ test('plain format', () => {
 });
 
 test('json format', () => {
+  const fileOneJSON = getFixturePath('file1.json');
+  const fileTwoJSON = getFixturePath('file2.json');
+  const fileOneYAML = getFixturePath('file1.yml');
+  const fileTwoYAML = getFixturePath('file2.yml');
   const resultJSONFile = getFixturePath('json-result.txt');
   const contentOfResultJSONFile = readFileSync(resultJSONFile, 'utf8');
   expect(genDiff(fileOneJSON, fileTwoJSON, 'json')).toBe(contentOfResultJSONFile);

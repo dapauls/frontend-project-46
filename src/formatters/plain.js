@@ -15,23 +15,18 @@ const toPlain = (diff, parents = []) => {
   const result = diffWithoutUnchangedStatus.map(({ key, status, value }) => {
     const newParents = parents.concat(key);
     const newParentsStr = newParents.join('.');
-    let string;
     switch (status) {
       case 'update':
-        string = `Property '${newParentsStr}' was updated. From ${getRightValue(value.oldValue)} to ${getRightValue(value.newValue)}`;
-        break;
+        return `Property '${newParentsStr}' was updated. From ${getRightValue(value.oldValue)} to ${getRightValue(value.newValue)}`;
       case 'removed':
-        string = `Property '${newParentsStr}' was removed`;
-        break;
+        return `Property '${newParentsStr}' was removed`;
       case 'added':
-        string = `Property '${newParentsStr}' was added with value: ${getRightValue(value)}`;
-        break;
+        return `Property '${newParentsStr}' was added with value: ${getRightValue(value)}`;
       case 'object':
         return toPlain(value, newParents);
       default:
-        string = 'Error!';
+        return 'Error!';
     }
-    return string;
   });
   return result.join('\n');
 };
