@@ -8,10 +8,6 @@ const __dirname = path.dirname(__filename);
 
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 
-let resultStylishFile;
-let resultPlainFile;
-let contentOfResultStylishFile;
-let contentOfResultPlainFile;
 let fileOneYAML;
 let fileTwoYAML;
 let fileOneJSON;
@@ -22,16 +18,25 @@ beforeEach(() => {
   fileTwoJSON = getFixturePath('file2.json');
   fileOneYAML = getFixturePath('file1.yml');
   fileTwoYAML = getFixturePath('file2.yml');
-  resultStylishFile = getFixturePath('stylish-result.txt');
-  contentOfResultStylishFile = readFileSync(resultStylishFile, 'utf8');
-  resultPlainFile = getFixturePath('plain-result.txt');
-  contentOfResultPlainFile = readFileSync(resultPlainFile, 'utf8');
 });
 
-test('json files in stylish format', () => expect(genDiff(fileOneJSON, fileTwoJSON)).toBe(contentOfResultStylishFile));
+test('stylish format', () => {
+  const resultStylishFile = getFixturePath('stylish-result.txt');
+  const contentOfResultStylishFile = readFileSync(resultStylishFile, 'utf8');
+  expect(genDiff(fileOneJSON, fileTwoJSON)).toBe(contentOfResultStylishFile);
+  expect(genDiff(fileOneYAML, fileTwoYAML)).toBe(contentOfResultStylishFile);
+});
 
-test('yaml files in stylish format', () => expect(genDiff(fileOneYAML, fileTwoYAML)).toBe(contentOfResultStylishFile));
+test('plain format', () => {
+  const resultPlainFile = getFixturePath('plain-result.txt');
+  const contentOfResultPlainFile = readFileSync(resultPlainFile, 'utf8');
+  expect(genDiff(fileOneJSON, fileTwoJSON, 'plain')).toBe(contentOfResultPlainFile);
+  expect(genDiff(fileOneYAML, fileTwoYAML, 'plain')).toBe(contentOfResultPlainFile);
+});
 
-test('json files in plain format', () => expect(genDiff(fileOneJSON, fileTwoJSON, 'plain')).toBe(contentOfResultPlainFile));
-
-test('yaml files in plain format', () => expect(genDiff(fileOneYAML, fileTwoYAML, 'plain')).toBe(contentOfResultPlainFile));
+test('json format', () => {
+  const resultJSONFile = getFixturePath('json-result.txt');
+  const contentOfResultJSONFile = readFileSync(resultJSONFile, 'utf8');
+  expect(genDiff(fileOneJSON, fileTwoJSON, 'json')).toBe(contentOfResultJSONFile);
+  expect(genDiff(fileOneYAML, fileTwoYAML, 'json')).toBe(contentOfResultJSONFile);
+});
