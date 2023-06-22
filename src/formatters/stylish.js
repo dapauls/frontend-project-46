@@ -40,5 +40,3 @@ const getAnswer = (diff, depth) => {
 const toStylish = (diff) => getAnswer(diff, 1);
 
 export default toStylish;
-
-// с глубиной какие-то проблемы (объект в объекте не читает)
